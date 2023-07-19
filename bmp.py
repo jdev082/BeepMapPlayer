@@ -1,8 +1,15 @@
+#!/bin/bash
 import os
 import string
 import time
+import sys
 rep_array = []
 start_rep = False
+
+if len(sys.argv) != 1:
+    print('ERR: Too many or too few arguments!')
+    print('bmp /path/to/beepmap.txt')
+    exit()
 
 def getchar(string, n):
     return str(string)[n - 1]
