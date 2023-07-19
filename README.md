@@ -12,7 +12,7 @@ Each line will look similar to this:
 ```
 330200
 ```
-The first 3 letters define the frequency of the note the PC speaker will play and the last 3 letters are the duration that the note will play. Each line may also contain one of the keywords mentioned previously.
+The first 3 numbers define the frequency of the note the PC speaker will play and the last 3 numbers are the duration that the note will play. Each line may also contain one of the keywords mentioned previously.
 # How to use the player
 You may either use the default beepmap.txt or make your own using the guide above. Then, simply run main.py like this:
 ```
