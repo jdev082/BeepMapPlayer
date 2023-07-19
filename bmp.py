@@ -6,15 +6,23 @@ import sys
 rep_array = []
 start_rep = False
 
-if len(sys.argv) != 1:
-    print('ERR: Too many or too few arguments!')
-    print('bmp /path/to/beepmap.txt')
-    exit()
+if len(sys.argv) > 2:
+    print("ERR: Too many arguments!")
+    sys.exit()
+elif len(sys.argv) < 2:
+    print("ERR: Too few arguments!")
+    sys.exit()
 
 def getchar(string, n):
     return str(string)[n - 1]
 
-with open('beepmap.txt') as beepmap:
+try:
+    open(sys.argv[1])
+except FileNotFoundError:
+    print("ERR: File specified could not be found!")
+    sys.exit()
+
+with open(sys.argv[1]) as beepmap:
     while beepmap.readable():
         for line in beepmap:
             if "RPD" in line.strip():
