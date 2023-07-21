@@ -6,6 +6,10 @@ import sys
 rep_array = []
 start_rep = False
 
+command_root = "beep"
+freq_arg = "-f"
+length_arg = "-l"
+
 if len(sys.argv) > 2:
     print("ERR: Too many arguments!")
     sys.exit()
@@ -46,7 +50,7 @@ with open(sys.argv[1]) as beepmap:
                             break
                         note = x[:3]
                         length = x[3:]
-                        os.system(f'beep -f {note} -l {length}')
+                        os.system(f'{command_root} {freq_arg} {note} {length_arg} {length}')
                         print(f'PLAYING: {x}')
                 break
             if "RPD" not in line:
@@ -58,7 +62,7 @@ with open(sys.argv[1]) as beepmap:
                     break
                 note = line[:3]
                 length = line[3:]
-                os.system(f'beep -f {note} -l {length}')
+                os.system(f'{command_root} {freq_arg} {note} {length_arg} {length}')
                 print(f'PLAYING: {line}')
         print(start_rep)
         print(rep_array)
