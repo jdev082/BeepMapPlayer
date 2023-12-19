@@ -60,8 +60,9 @@ with open(sys.argv[1]) as beepmap:
                     else:
                         time.sleep(int(line[3:]))
                     break
-                note = line[:3]
-                length = line[3:]
+                d = line.split(":")
+                note = d[0]
+                length = d[1]
                 os.system(f'{command_root} {freq_arg} {note} {length_arg} {length}')
                 print(f'PLAYING: {line}')
         print(start_rep)
